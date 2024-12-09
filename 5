@@ -1,0 +1,25 @@
+"""Develop a python script to rotate right about a given position in that list and display them. [hint: input [1,4,5,-10] position: 2, output: [-10,5,4,1]]  """
+
+# Function to rotate the list to the right by a given position
+def rotate_right(lst, positions):
+    # Handle empty list and rotation greater than list length
+    if not lst:
+        return lst
+    
+    # Calculate the effective positions to rotate by taking the modulus
+    positions = positions % len(lst)
+    
+    # Slice the list and concatenate to form the rotated list
+    rotated_list = lst[-positions:] + lst[:-positions]
+    
+    return rotated_list
+
+# Accepting a list and position from the user
+input_list = input("Enter the list of numbers separated by commas: ")
+lst = [int(x) for x in input_list.split(",")]
+
+position = int(input("Enter the number of positions to rotate: "))
+
+# Rotate the list and display the result
+rotated_lst = rotate_right(lst, position)
+print(f"Rotated list: {rotated_lst}")
