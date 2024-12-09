@@ -1,0 +1,22 @@
+# Develop a Python program to validate a USN of the format a digit followed by 2 characters followed
+#by 2 digits followed by 2 characters followed by 3 digits.
+
+import re
+
+# Function to validate the USN using regular expression
+def validate_usn(usn):
+    # Regular expression pattern for the USN
+    pattern = r'^\d[A-Za-z]{2}\d{2}[A-Za-z]{2}\d{3}$'
+    
+    # Match the USN with the pattern
+    if re.match(pattern, usn):
+        return "Valid USN"
+    else:
+        return "Invalid USN"
+
+# Get USN input from the user
+usn = input("Enter the USN: ")
+
+# Validate and print the result
+result = validate_usn(usn)
+print(result)
