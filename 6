@@ -1,0 +1,31 @@
+'''Using a dictionary, Develop a python program to determine and print the number of duplicate words in a sentence. '''
+def count_duplicates(sentence):
+    # Convert the sentence to lowercase and split into words
+    words = sentence.lower().split()
+    
+    # Create a dictionary to store word frequencies
+    word_count = {}
+    
+    # Count the occurrences of each word
+    for word in words:
+        if word in word_count:
+            word_count[word] += 1
+        else:
+            word_count[word] = 1
+    
+    # Determine the number of duplicate words
+    duplicate_words = {word: count for word, count in word_count.items() if count > 1}
+    
+    return duplicate_words
+
+# Accepting a sentence from the user
+sentence = input("Enter a sentence: ")
+
+# Count duplicate words
+duplicates = count_duplicates(sentence)
+
+# Display the number of duplicate words and the duplicates
+print(f"Number of duplicate words: {len(duplicates)}")
+print("Duplicate words and their counts:")
+for word, count in duplicates.items():
+    print(f"{word}: {count}")
