@@ -1,0 +1,26 @@
+'''Develop a program for checking if a given n digit number is palindrome or not.  [hint: input 1221 output: palindrome, use //and % operator with loop statement]  '''
+# Function to check if a number is a palindrome
+def is_palindrome(number):
+    original_number = number
+    reversed_number = 0
+
+    # Reverse the number using // and % operators
+    while number > 0:
+        digit = number % 10  # Extract the last digit
+        reversed_number = (reversed_number * 10) + digit  # Append the digit to reversed number
+        number = number // 10  # Remove the last digit
+
+    # Check if the original number is equal to its reverse
+    if original_number == reversed_number:
+        return True
+    else:
+        return False
+
+# Accepting an n-digit integer from the user
+n = int(input("Enter an n-digit integer: "))
+
+# Check if the number is a palindrome
+if is_palindrome(n):
+    print("Palindrome")
+else:
+    print("Not a palindrome")
