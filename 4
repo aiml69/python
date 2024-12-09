@@ -1,0 +1,30 @@
+'''DevelopWrite a python script to interchange the digits of a given integer number. [hint: input: 23456, interchange: 3 and 5 output: 25436]  '''
+def interchange_digits(number, digit1, digit2):
+    # Convert number to string
+    number_str = str(number)
+    
+    # Create a new string with digits interchanged
+    modified_str = ''
+    for char in number_str:
+        if char == digit1:
+            modified_str += digit2
+        elif char == digit2:
+            modified_str += digit1
+        else:
+            modified_str += char
+    
+    # Convert back to integer and return
+    return int(modified_str)
+
+# Accepting input from the user
+number = int(input("Enter the integer number: "))
+digit1 = input("Enter the first digit to interchange: ")
+digit2 = input("Enter the second digit to interchange: ")
+
+# Validate that the input digits are single characters and part of the number
+if len(digit1) != 1 or len(digit2) != 1 or digit1 not in str(number) or digit2 not in str(number):
+    print("Invalid input. Ensure that both digits are single characters and exist in the number.")
+else:
+    # Interchange the digits and display the result
+    result = interchange_digits(number, digit1, digit2)
+    print(f"Result after interchanging {digit1} and {digit2}: {result}")
