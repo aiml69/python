@@ -1,0 +1,21 @@
+const int triggerPin = 9;  // Arduino digital pin connected to the trigger pin of the simulated sensor 
+const int echoPin = 10;    // Arduino digital pin connected to the echo pin of the simulated sensor 
+void setup() { 
+Serial.begin(9600); 
+pinMode(triggerPin, OUTPUT); 
+pinMode(echoPin, INPUT); 
+} 
+void loop() { 
+// Simulate the ultrasonic sensor by generating a distance value 
+int simulatedDistance = generateSimulatedDistance(); 
+// Print the simulated distance value 
+Serial.print("Simulated Distance: "); 
+Serial.print(simulatedDistance); 
+Serial.println(" cm"); 
+delay(1000);  // Wait for a moment before the next measurement 
+} 
+int generateSimulatedDistance() { 
+// Replace this function with your desired simulation logic 
+// In this example, a simple sine function is used 
+// You can modify this function to simulate different behaviors 
+return 50 + 50 * sin(millis() / 1000.0);  // Simulates a distance oscillating between 0 and 100 cm
