@@ -1,0 +1,28 @@
+import nltk 
+from nltk.tokenize import word_tokenize 
+from nltk.probability import FreqDist 
+from nltk.corpus import stopwords 
+import string 
+# Download NLTK resources (uncomment the following two lines if not already downloaded) 
+# nltk.download('punkt') 
+# nltk.download('stopwords') 
+def tokenize_and_count_frequency(text): 
+# Tokenize the text into words 
+words = word_tokenize(text) 
+# Remove punctuation and convert to lowercase 
+words = [word.lower() for word in words if word.isalpha()] 
+# Remove stop words 
+stop_words = set(stopwords.words('english')) 
+words = [word for word in words if word not in stop_words] 
+# Calculate word frequencies 
+frequency_dist = FreqDist(words) 
+return frequency_dist 
+if __name__ == "__main__": 
+# Sample text for testing 
+sample_text = "This is a sample text. It is used for testing the NLTK word frequency counting functionality." 
+# Tokenize and count word frequency 
+word_freq = tokenize_and_count_frequency(sample_text) 
+# Print the word frequencies 
+print("Word frequencies:") 
+for word, frequency in word_freq.items(): 
+print(f"{word}: {frequency}")
