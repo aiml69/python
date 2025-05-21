@@ -1,0 +1,154 @@
+int ldr_pin = A5; 
+int ldr_value; 
+int light = 3; 
+void setup() 
+{ 
+pinMode(light, OUTPUT); pinMode(ldr_pin, INPUT); 
+} 
+void loop()
+ { 
+    ldr_value = analogRead(ldr_pin); 
+    if (ldr_value > 512) 
+      digitalWrite(light, 0); 
+    else 
+      digitalWrite(light, 1); 
+   
+  } 
+2nd 
+ 
+void setup() 
+{ 
+  pinMode(4, INPUT); 
+  pinMode(13, OUTPUT); 
+   pinMode(3, INPUT); 
+  pinMode(12, OUTPUT); 
+   pinMode(2, INPUT); 
+   pinMode(7, INPUT); 
+  pinMode(11, OUTPUT); 
+  pinMode(5, INPUT); 
+  pinMode(10, OUTPUT); 
+  pinMode(6, INPUT); 
+  pinMode(9, OUTPUT); 
+  pinMode(A0, INPUT); 
+   pinMode(8, OUTPUT); 
+  Serial.begin(9600); 
+} 
+ 
+void loop() 
+{ 
+  if(digitalRead(7)==1) 
+  { 
+    digitalWrite(9,LOW);  
+    digitalWrite(10,LOW); 
+    digitalWrite(11,LOW); 
+    digitalWrite(12,LOW); 
+     digitalWrite(13,LOW); 
+ 
+    digitalWrite(8,HIGH); 
+    Serial.println("EMERGENCY"); 
+    delay(500); 
+    digitalWrite(8,LOW); 
+    delay(500); 
+    digitalWrite(8,HIGH); 
+    Serial.println("EMERGENCY"); 
+    delay(500); 
+    digitalWrite(8,LOW); 
+    delay(500); 
+    digitalWrite(8,HIGH); 
+    Serial.println("EMERGENCY"); 
+    delay(500); 
+    digitalWrite(8,LOW); 
+    delay(500); 
+    digitalWrite(7,HIGH); 
+    Serial.println("EMERGENCY"); 
+    delay(500); 
+ digitalWrite(8,LOW); 
+    delay(500); 
+    digitalWrite(8,HIGH); 
+    Serial.println("EMERGENCY"); 
+    delay(500); 
+    digitalWrite(8,LOW); 
+    delay(5000); 
+  } 
+  else 
+  { 
+    digitalWrite(8,LOW); 
+  } 
+   
+  if(analogRead(A0)<300) 
+  { 
+ if (digitalRead(4)==1) 
+ { 
+   digitalWrite(13,HIGH); 
+   Serial.println("STATE – NIGHT ,  CHECKPOINT  – 1 , LED STATE – ON"); 
+ } 
+  else 
+    { 
+   digitalWrite(13,LOW); 
+ } 
+   if (digitalRead(3)==1) 
+ { 
+   digitalWrite(12,HIGH); 
+    Serial.println("STATE – NIGHT ,  CHECKPOINT  – 2 , LED STATE – ON");  
+ } 
+  else 
+    { 
+   digitalWrite(12,LOW); 
+ } 
+    if (digitalRead(2)==1) 
+ { 
+   digitalWrite(11,HIGH); 
+      Serial.println("STATE – NIGHT ,  CHECKPOINT  – 3 , LED STATE – ON"); 
+ } 
+  else 
+    { 
+   digitalWrite(11,LOW); 
+ } 
+      if (digitalRead(5)==1) 
+ { 
+   digitalWrite(10,HIGH); 
+        Serial.println("STATE – NIGHT ,  CHECKPOINT  – 4 , LED STATE – ON"); 
+ } 
+  else 
+    { 
+   digitalWrite(10,LOW); 
+ } 
+      if (digitalRead(6)==1) 
+ { 
+   digitalWrite(9,HIGH); 
+        Serial.println("STATE – NIGHT ,  CHECKPOINT  – 5 , LED STATE – ON"); 
+ } 
+else 
+{ 
+digitalWrite(9,LOW); 
+} 
+} 
+else 
+{ 
+digitalWrite(9,LOW);  
+digitalWrite(10,LOW); 
+digitalWrite(11,LOW); 
+digitalWrite(12,LOW); 
+digitalWrite(13,LOW); 
+if (digitalRead(4)==1) 
+{ 
+Serial.println("STATE – DAY ,  CHECKPOINT  – 1 , LED STATE – OFF"); 
+} 
+if (digitalRead(3)==1) 
+{ 
+Serial.println("STATE – DAY ,  CHECKPOINT  – 2 , LED STATE – OFF"); 
+} 
+if (digitalRead(2)==1) 
+{ 
+Serial.println("STATE – DAY ,  CHECKPOINT  – 3 , LED STATE – OFF"); 
+} 
+if (digitalRead(5)==1) 
+{ 
+Serial.println("STATE – DAY ,  CHECKPOINT  – 4 , LED STATE – OFF"); 
+} 
+if (digitalRead(6)==1) 
+{ 
+Serial.println("STATE – DAY ,  CHECKPOINT  – 5 , LED STATE – OFF"); 
+} 
+} 
+}
