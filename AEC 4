@@ -1,0 +1,38 @@
+#include <Servo.h> 
+Servo myservo;  // create servo object to control a servo 
+// twelve servo objects can be created on most boards 
+int poson = 1  ;   // on position(!!YOU WILL HAVE TO SET IT BY TRY AND ERROR ACCORDING TO YOUR 
+SETUP!!) 
+int posoff =  100 ;  //off position(!!YOU WILL HAVE TO SET IT BY TRY AND ERROR ACCORDING TO YOUR 
+SETUP!!) 
+int pirPin = 7;    //the digital pin connected to the PIR sensor's output 
+int ledPin = 13; 
+int led2Pin=12; 
+void setup() { 
+pinMode(pirPin, INPUT); 
+pinMode(ledPin, OUTPUT); 
+pinMode(led2Pin,OUTPUT); 
+digitalWrite(pirPin, LOW); 
+myservo.attach(9);  // attaches the servo on pin 9 to the servo object 
+// delay(30000); //enough time for the sensor to calibrate 
+} 
+void loop() { 
+if(  digitalRead(pirPin) == HIGH
+ digitalWrite(ledPin, HIGH); 
+digitalWrite(led2Pin,LOW); 
+myservo.write(45);
+              //
+ delay(5000);     
+myservo.write(90);
+ digitalWrite(ledPin, LOW); 
+              //
+        )
+ {  
+ tell servo to go to position in variable 'poson' 
+ tell servo to go to position in variable 'posoff' 
+Dept. of AI & ML, GAT 
+digitalWrite(led2Pin,HIGH); 
+delay(1000);   //delay so it wont start right again imidately 
+digitalWrite(led2Pin,LOW); 
+} 
+}
