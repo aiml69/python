@@ -2,41 +2,38 @@ import nltk
 from nltk.tokenize import word_tokenize 
 from nltk.stem import PorterStemmer, WordNetLemmatizer 
 from nltk.corpus import stopwords 
-# Download NLTK resources (uncomment the following two lines if not already downloaded) 
-# nltk.download('punkt') 
-# nltk.download('wordnet') 
-# nltk.download('stopwords') 
+
 def preprocess_text(text): 
-# Tokenize the text into words 
+ 
 words = word_tokenize(text) 
-# Remove punctuation and convert to lowercase 
+ 
 words = [word.lower() for word in words if word.isalpha()] 
-# Remove stop words 
+
 stop_words = set(stopwords.words('english')) 
 words = [word for word in words if word not in stop_words] 
 return words 
 def stem_text(words): 
-# Initialize the Porter Stemmer 
+
 stemmer = PorterStemmer() 
-# Apply stemming to each word in the list 
+
 stemmed_words = [stemmer.stem(word) for word in words] 
 return stemmed_words 
 def lemmatize_text(words): 
-# Initialize the WordNet Lemmatizer 
+
 lemmatizer = WordNetLemmatizer() 
-# Apply lemmatization to each word in the list 
+
 lemmatized_words = [lemmatizer.lemmatize(word) for word in words] 
 return lemmatized_words 
 if __name__ == "__main__": 
-# Sample text for testing 
+
 sample_text = "The quick brown foxes are jumping over the lazy dogs." 
-# Preprocess the text 
+ 
 processed_words = preprocess_text(sample_text) 
-# Stem the words 
+ 
 stemmed_words = stem_text(processed_words) 
-# Lemmatize the words
+
 lemmatized_words = lemmatize_text(processed_words) 
-# Print the results 
+ 
 print("Original Words:", processed_words) 
 print("Stemmed Words:", stemmed_words) 
 print("Lemmatized Words:", lemmatized_words) 
